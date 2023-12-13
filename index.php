@@ -1,3 +1,28 @@
+<?php
+
+    session_start();
+
+    // if (isset($_POST['otp'])) {
+    //     $code = $_POST['otp'];
+    //     if ($code == OTP_CODE) {
+    //         $_SESSION['auth'] = true;
+    //         header('Location: ./dashboard.php');
+    //     } else {
+    //         echo 'ERROREEEE!';
+    //         $_SESSION['attempts']++;
+
+    //         if ($_SESSION['attempts'] >= 3) {
+    //             $_SESSION['freeze'] = time();
+    //             header('Location: ./freeze.php');
+    //             die;
+    //         }
+    //     }
+
+    //     var_dump($_SESSION['attempts']);
+    // }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,17 +37,10 @@
     </form>
 
     <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $address = $_POST['email-address'];
-        if (empty($address)) {
-            echo "Insert e-mail address";
-        } else if (!str_contains($address, '@') || !str_contains($address, '.')) {
-            echo "Insert a valid address";
-        } else {
-            echo $address;
-        }
-        }
+        require __DIR__ . "/function.php";
     ?>
+
+    
 
 </body>
 </html>
